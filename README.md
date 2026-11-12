@@ -1,12 +1,16 @@
 # personal-website
 
-Personal website built with Vite + React + TypeScript.
+Personal website built with Vite + React + TypeScript, deployed to GitHub Pages.
 
 ## Development
 
+Commands run through [Task](https://taskfile.dev):
+
 ```bash
-npm install
-npm run dev      # start dev server
-npm run build    # type-check and build to dist/
-npm run preview  # preview the production build
+task          # list tasks
+task dev      # start dev server
+task check    # lint + type-check + build
+task preview  # preview the production build
 ```
+
+See `Taskfile.yml` for the full list.

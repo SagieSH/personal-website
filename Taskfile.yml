@@ -1,0 +1,60 @@
+# https://taskfile.dev
+version: '3'
+
+tasks:
+  default:
+    desc: List available tasks
+    cmds:
+      - task --list
+    silent: true
+
+  install:
+    desc: Install npm dependencies
+    cmds:
+      - npm install
+    sources:
+      - package.json
+      - package-lock.json
+    generates:
+      - node_modules/.package-lock.json
+
+  dev:
+    desc: Start the Vite dev server
+    deps: [install]
+    cmds:
+      - npm run dev
+
+  lint:
+    desc: Lint with oxlint
+    deps: [install]
+    cmds:
+      - npm run lint
+
+  typecheck:
+    desc: Type-check without emitting
+    deps: [install]
+    cmds:
+      - npx tsc -b
+
+  build:
+    desc: Type-check and build to dist/
+    deps: [install]
+    cmds:
+      - npm run build
+
+  preview:
+    desc: Serve the production build locally
+    deps: [build]
+    cmds:
+      - npm run preview
+
+  check:
+    desc: Run everything CI cares about (lint + build)
+    cmds:
+      - task: lint
+      - task: build
+
+  clean:
+    desc: Remove build output
+    cmds:
+      - rm -rf dist
