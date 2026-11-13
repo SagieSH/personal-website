@@ -23,8 +23,11 @@ jobs:
         with:
           node-version: 24
           cache: npm
+      - uses: arduino/setup-task@v2
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
       - run: npm ci
-      - run: npm run build
+      - run: task check
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

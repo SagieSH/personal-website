@@ -1,0 +1,16 @@
+.section {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 4rem 16px;
+  border-top: 1px solid var(--border);
+}
+
+.title {
+  margin: 0 0 0.5rem;
+  font-size: 2rem;
+}
+
+.blurb {
+  margin: 0 0 1.5rem;
+  color: var(--muted);
+}

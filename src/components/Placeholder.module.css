@@ -1,0 +1,8 @@
+.placeholder {
+  margin: 0;
+  padding: 2rem;
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+  color: var(--muted);
+  text-align: center;
+}

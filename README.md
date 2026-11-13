@@ -9,7 +9,7 @@ Commands run through [Task](https://taskfile.dev):
 ```bash
 task          # list tasks
 task dev      # start dev server
-task check    # lint + type-check + build
+task check    # format, lint, test, build (same as CI)
 task preview  # preview the production build
 ```
 

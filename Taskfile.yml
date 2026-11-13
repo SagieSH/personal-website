@@ -24,8 +24,20 @@ tasks:
     cmds:
       - npm run dev
 
+  format:
+    desc: Format all files with Prettier
+    deps: [install]
+    cmds:
+      - npm run format
+
+  format:check:
+    desc: Check formatting without writing
+    deps: [install]
+    cmds:
+      - npm run format:check
+
   lint:
-    desc: Lint with oxlint
+    desc: Lint TS/TSX (oxlint) and CSS (stylelint)
     deps: [install]
     cmds:
       - npm run lint
@@ -34,7 +46,19 @@ tasks:
     desc: Type-check without emitting
     deps: [install]
     cmds:
-      - npx tsc -b
+      - npm run typecheck
+
+  test:
+    desc: Run tests once
+    deps: [install]
+    cmds:
+      - npm test
+
+  test:watch:
+    desc: Run tests in watch mode
+    deps: [install]
+    cmds:
+      - npm run test:watch
 
   build:
     desc: Type-check and build to dist/
@@ -49,9 +73,11 @@ tasks:
       - npm run preview
 
   check:
-    desc: Run everything CI cares about (lint + build)
+    desc: Everything CI runs — format check, lint, test, build
     cmds:
+      - task: format:check
       - task: lint
+      - task: test
       - task: build
 
   clean:
