@@ -1,3 +1,4 @@
+import { Container, Divider, Text, Title } from '@mantine/core'
 import type { ReactNode } from 'react'
 
 type SectionProps = {
@@ -10,16 +11,21 @@ type SectionProps = {
 export function Section({ id, title, blurb, children }: SectionProps) {
   const headingId = `${id}-heading`
   return (
-    <section
+    <Container
+      component="section"
       id={id}
       aria-labelledby={headingId}
-      className="mx-auto max-w-180 border-t border-line px-4 py-16"
+      size={720}
+      pb={64}
     >
-      <h2 id={headingId} className="mb-2 text-[2rem] font-bold">
+      <Divider mb={64} />
+      <Title order={2} id={headingId} mb="xs">
         {title}
-      </h2>
-      <p className="mb-6 text-muted">{blurb}</p>
+      </Title>
+      <Text c="dimmed" mb="lg">
+        {blurb}
+      </Text>
       {children}
-    </section>
+    </Container>
   )
 }

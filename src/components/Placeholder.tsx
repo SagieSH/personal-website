@@ -1,7 +1,15 @@
+import { Text } from '@mantine/core'
+
 export function Placeholder() {
   return (
-    <p className="rounded-xl border border-dashed border-line p-8 text-center text-muted">
+    <Text
+      c="dimmed"
+      ta="center"
+      p="xl"
+      bd="1px dashed var(--mantine-color-default-border)"
+      bdrs="lg"
+    >
       Content coming soon.
-    </p>
+    </Text>
   )
 }

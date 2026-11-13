@@ -58,10 +58,16 @@
       {
         "patterns": [
           {
-            "group": ["*.module.css"],
-            "message": "Style with Tailwind utilities in className instead of CSS Modules"
+            "group": ["tailwindcss", "@tailwindcss/*"],
+            "message": "This project styles with Mantine (theme, props, co-located *.module.css)"
           }
         ]
+      }
+    ],
+    "react/forbid-component-props": [
+      "error",
+      {
+        "forbid": ["style", "styles"]
       }
     ]
   },

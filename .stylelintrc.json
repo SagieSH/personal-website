@@ -1,34 +1,30 @@
 {
   "extends": ["stylelint-config-standard"],
   "rules": {
-    "at-rule-no-unknown": [
-      true,
-      {
-        "ignoreAtRules": [
-          "theme",
-          "utility",
-          "variant",
-          "custom-variant",
-          "source",
-          "reference",
-          "plugin",
-          "config",
-          "apply"
-        ]
-      }
-    ],
+    "at-rule-no-unknown": [true, { "ignoreAtRules": ["mixin"] }],
+    "function-no-unknown": [true, { "ignoreFunctions": ["rem", "em"] }],
     "import-notation": "string",
+    "selector-disallowed-list": [
+      ["/:global/"],
+      { "message": "Keep styles scoped to their component; no :global" }
+    ],
     "selector-max-class": [
       0,
       {
-        "message": "Style components with Tailwind utilities in className; index.css holds tokens and element styles only"
-      }
-    ],
-    "custom-property-pattern": [
-      "^([a-z][a-z0-9]*)(-[a-z0-9]+)*(-\\*)?$",
-      {
-        "message": "Use kebab-case custom properties (Tailwind namespace resets like --color-* are allowed)"
+        "message": "index.css holds element-level styles only; put component styles in props or its co-located *.module.css"
       }
     ]
-  }
+  },
+  "overrides": [
+    {
+      "files": ["**/*.module.css"],
+      "rules": {
+        "selector-max-class": 1,
+        "selector-class-pattern": [
+          "^[a-z][a-zA-Z0-9]*$",
+          { "message": "Use camelCase class names (accessed as classes.name)" }
+        ]
+      }
+    }
+  ]
 }

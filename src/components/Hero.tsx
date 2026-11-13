@@ -1,4 +1,6 @@
+import { Box, SimpleGrid, Stack, Text, Title } from '@mantine/core'
 import type { SectionConfig } from '../sections'
+import { headerHeight } from '../theme'
 import { SectionCard } from './SectionCard'
 
 type HeroProps = {
@@ -8,25 +10,42 @@ type HeroProps = {
 
 export function Hero({ ownerName, sections }: HeroProps) {
   return (
-    <section className="flex min-h-[calc(100vh-4rem)] flex-col items-center justify-center px-4 py-12 text-center">
-      <h1 className="mb-2 text-[clamp(2rem,6vw,3.5rem)] font-bold">
+    <Stack
+      component="section"
+      align="center"
+      justify="center"
+      gap={0}
+      mih={`calc(100vh - ${headerHeight}px)`}
+      px="md"
+      py="xl"
+      ta="center"
+    >
+      <Title order={1} fz="clamp(2rem, 6vw, 3.5rem)" mb="xs">
         Hello, I'm {ownerName}
-      </h1>
-      <p className="text-lg text-muted">
+      </Title>
+      <Text size="lg" c="dimmed">
         Welcome to my corner of the internet. Pick a section to start.
-      </p>
-      <ul className="mt-10 grid w-full max-w-160 grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-4">
+      </Text>
+      <SimpleGrid
+        component="ul"
+        cols={{ base: 1, xs: 2 }}
+        w="100%"
+        maw={640}
+        mt={40}
+        p={0}
+      >
         {sections.map((s, i) => (
-          <li key={s.id}>
+          // display: block drops the list marker.
+          <Box component="li" key={s.id} display="block">
             <SectionCard
               href={`#${s.id}`}
               index={i + 1}
               title={s.title}
               blurb={s.blurb}
             />
-          </li>
+          </Box>
         ))}
-      </ul>
-    </section>
+      </SimpleGrid>
+    </Stack>
   )
 }

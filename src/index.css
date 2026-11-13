@@ -1,54 +1,9 @@
-@import 'tailwindcss';
-
-/* Semantic color tokens; values swap for dark mode. */
-:root {
-  --page: #fafaf9;
-  --surface: #fff;
-  --ink: #1c1917;
-  --muted: #57534e;
-  --line: #e7e5e4;
-  --accent: #2563eb;
-
-  color-scheme: light dark;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --page: #0c0a09;
-    --surface: #1c1917;
-    --ink: #f5f5f4;
-    --muted: #a8a29e;
-    --line: #292524;
-    --accent: #60a5fa;
-  }
-}
-
-/* Expose the tokens as utilities (bg-page, text-muted, border-line, ...)
-   and drop Tailwind's default palette so only these colors exist. */
-@theme inline {
-  --color-*: initial;
-  --color-page: var(--page);
-  --color-surface: var(--surface);
-  --color-ink: var(--ink);
-  --color-muted: var(--muted);
-  --color-line: var(--line);
-  --color-accent: var(--accent);
-  --font-sans: system-ui, -apple-system, 'Segoe UI', roboto, sans-serif;
-}
+/* Global element-level styles only (no classes). Colors, fonts and spacing
+   come from the Mantine theme in src/theme.ts. */
 
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 4rem;
-}
-
-body {
-  background: var(--color-page);
-  color: var(--color-ink);
-}
-
-:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 2px;
 }
 
 main:focus {

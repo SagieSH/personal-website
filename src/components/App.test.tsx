@@ -1,6 +1,7 @@
-import { render, screen, within } from '@testing-library/react'
+import { screen, within } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 import { sections } from '../sections'
+import { render } from '../testUtils'
 import { App } from './App'
 
 describe('App', () => {

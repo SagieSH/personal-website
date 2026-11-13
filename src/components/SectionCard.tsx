@@ -1,3 +1,6 @@
+import { Card, Text } from '@mantine/core'
+import classes from './SectionCard.module.css'
+
 type SectionCardProps = {
   href: string
   index: number
@@ -7,18 +10,30 @@ type SectionCardProps = {
 
 export function SectionCard({ href, index, title, blurb }: SectionCardProps) {
   return (
-    <a
+    <Card
+      component="a"
       href={href}
-      className="flex h-full flex-col gap-1 rounded-xl border border-line bg-surface p-6 text-left transition-[border-color,translate] duration-150 hover:-translate-y-0.5 hover:border-accent focus-visible:-translate-y-0.5 focus-visible:border-accent"
+      withBorder
+      padding="lg"
+      h="100%"
+      ta="left"
+      className={classes.card}
     >
-      <span
-        className="text-[0.8rem] text-accent tabular-nums"
+      <Text
+        component="span"
+        size="xs"
+        ff="monospace"
+        c="var(--mantine-primary-color-filled)"
         aria-hidden="true"
       >
         {String(index).padStart(2, '0')}
-      </span>
-      <span className="text-2xl font-semibold">{title}</span>
-      <span className="text-[0.95rem] text-muted">{blurb}</span>
-    </a>
+      </Text>
+      <Text component="span" fz="xl" fw={600}>
+        {title}
+      </Text>
+      <Text component="span" size="sm" c="dimmed">
+        {blurb}
+      </Text>
+    </Card>
   )
 }

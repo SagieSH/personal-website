@@ -1,3 +1,5 @@
+import { Box, Divider, Text } from '@mantine/core'
+
 const year = new Date().getFullYear()
 
 type FooterProps = {
@@ -6,8 +8,11 @@ type FooterProps = {
 
 export function Footer({ ownerName }: FooterProps) {
   return (
-    <footer className="border-t border-line px-4 py-8 text-center text-sm text-muted">
-      © {year} {ownerName}
-    </footer>
+    <Box component="footer">
+      <Divider />
+      <Text ta="center" size="sm" c="dimmed" px="md" py="xl">
+        © {year} {ownerName}
+      </Text>
+    </Box>
   )
 }

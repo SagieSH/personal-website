@@ -1,0 +1,17 @@
+/* Lift and highlight on hover / keyboard focus. */
+.card {
+  gap: rem(4px);
+  transition:
+    border-color 150ms ease,
+    translate 150ms ease;
+
+  @mixin hover {
+    translate: 0 rem(-2px);
+    border-color: var(--mantine-primary-color-filled);
+  }
+
+  &:focus-visible {
+    translate: 0 rem(-2px);
+    border-color: var(--mantine-primary-color-filled);
+  }
+}
