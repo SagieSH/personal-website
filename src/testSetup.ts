@@ -22,6 +22,7 @@ Object.defineProperty(window, 'matchMedia', {
 })
 
 window.HTMLElement.prototype.scrollIntoView = noop
+window.scrollTo = noop
 
 window.ResizeObserver = class {
   observe() {}

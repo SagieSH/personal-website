@@ -1,4 +1,5 @@
 import { Box, SimpleGrid, Stack, Text, Title } from '@mantine/core'
+import { routeHref } from '../router'
 import type { SectionConfig } from '../sections'
 import { headerHeight } from '../theme'
 import { SectionCard } from './SectionCard'
@@ -38,7 +39,7 @@ export function Hero({ ownerName, sections }: HeroProps) {
           // display: block drops the list marker.
           <Box component="li" key={s.id} display="block">
             <SectionCard
-              href={`#${s.id}`}
+              href={routeHref(s.id)}
               index={i + 1}
               title={s.title}
               blurb={s.blurb}
