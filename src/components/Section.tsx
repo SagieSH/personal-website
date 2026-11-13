@@ -1,5 +1,4 @@
 import type { ReactNode } from 'react'
-import styles from './Section.module.css'
 
 type SectionProps = {
   id: string
@@ -11,11 +10,15 @@ type SectionProps = {
 export function Section({ id, title, blurb, children }: SectionProps) {
   const headingId = `${id}-heading`
   return (
-    <section id={id} aria-labelledby={headingId} className={styles.section}>
-      <h2 id={headingId} className={styles.title}>
+    <section
+      id={id}
+      aria-labelledby={headingId}
+      className="mx-auto max-w-180 border-t border-line px-4 py-16"
+    >
+      <h2 id={headingId} className="mb-2 text-[2rem] font-bold">
         {title}
       </h2>
-      <p className={styles.blurb}>{blurb}</p>
+      <p className="mb-6 text-muted">{blurb}</p>
       {children}
     </section>
   )

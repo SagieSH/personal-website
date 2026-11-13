@@ -1,37 +1,34 @@
 {
   "extends": ["stylelint-config-standard"],
   "rules": {
-    "color-no-hex": true,
-    "color-named": "never",
-    "function-disallowed-list": [
-      "rgb",
-      "rgba",
-      "hsl",
-      "hsla",
-      "hwb",
-      "lab",
-      "lch",
-      "oklab",
-      "oklch"
-    ],
-    "selector-class-pattern": [
-      "^[a-z][a-zA-Z0-9]*$",
-      { "message": "Use camelCase class names (accessed as styles.name)" }
-    ]
-  },
-  "overrides": [
-    {
-      "files": ["src/index.css"],
-      "rules": {
-        "color-no-hex": null,
-        "function-disallowed-list": null,
-        "selector-max-class": [
-          0,
-          {
-            "message": "Global CSS holds tokens and element styles only; put classes in a CSS Module"
-          }
+    "at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": [
+          "theme",
+          "utility",
+          "variant",
+          "custom-variant",
+          "source",
+          "reference",
+          "plugin",
+          "config",
+          "apply"
         ]
       }
-    }
-  ]
+    ],
+    "import-notation": "string",
+    "selector-max-class": [
+      0,
+      {
+        "message": "Style components with Tailwind utilities in className; index.css holds tokens and element styles only"
+      }
+    ],
+    "custom-property-pattern": [
+      "^([a-z][a-z0-9]*)(-[a-z0-9]+)*(-\\*)?$",
+      {
+        "message": "Use kebab-case custom properties (Tailwind namespace resets like --color-* are allowed)"
+      }
+    ]
+  }
 }

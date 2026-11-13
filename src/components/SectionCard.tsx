@@ -1,5 +1,3 @@
-import styles from './SectionCard.module.css'
-
 type SectionCardProps = {
   href: string
   index: number
@@ -9,12 +7,18 @@ type SectionCardProps = {
 
 export function SectionCard({ href, index, title, blurb }: SectionCardProps) {
   return (
-    <a href={href} className={styles.card}>
-      <span className={styles.index} aria-hidden="true">
+    <a
+      href={href}
+      className="flex h-full flex-col gap-1 rounded-xl border border-line bg-surface p-6 text-left transition-[border-color,translate] duration-150 hover:-translate-y-0.5 hover:border-accent focus-visible:-translate-y-0.5 focus-visible:border-accent"
+    >
+      <span
+        className="text-[0.8rem] text-accent tabular-nums"
+        aria-hidden="true"
+      >
         {String(index).padStart(2, '0')}
       </span>
-      <span className={styles.title}>{title}</span>
-      <span className={styles.blurb}>{blurb}</span>
+      <span className="text-2xl font-semibold">{title}</span>
+      <span className="text-[0.95rem] text-muted">{blurb}</span>
     </a>
   )
 }

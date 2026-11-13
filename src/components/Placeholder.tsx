@@ -1,5 +1,7 @@
-import styles from './Placeholder.module.css'
-
 export function Placeholder() {
-  return <p className={styles.placeholder}>Content coming soon.</p>
+  return (
+    <p className="rounded-xl border border-dashed border-line p-8 text-center text-muted">
+      Content coming soon.
+    </p>
+  )
 }

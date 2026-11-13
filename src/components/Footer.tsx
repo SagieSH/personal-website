@@ -1,5 +1,3 @@
-import styles from './Footer.module.css'
-
 const year = new Date().getFullYear()
 
 type FooterProps = {
@@ -8,7 +6,7 @@ type FooterProps = {
 
 export function Footer({ ownerName }: FooterProps) {
   return (
-    <footer className={styles.footer}>
+    <footer className="border-t border-line px-4 py-8 text-center text-sm text-muted">
       © {year} {ownerName}
     </footer>
   )
